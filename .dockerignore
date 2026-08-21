@@ -1,0 +1,7 @@
+target/
+dbt_packages/
+dbt_modules/
+.git/
+.gitignore
+*.md
+.env

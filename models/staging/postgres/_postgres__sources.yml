@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw e-commerce database tables from PostgreSQL
+    schema: public
+    tables:
+      - name: users
+        description: User accounts table
+        columns:
+          - name: id
+            description: Primary key (UUID)
+            data_tests:
+              - unique
+              - not_null
+          - name: email
+            description: User email address
+            data_tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: User first name
+            data_tests:
+              - not_null
+          - name: last_name
+            description: User last name
+            data_tests:
+              - not_null
+          - name: role
+            description: User role (admin or user)
+            data_tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values: ['admin', 'user']
+          - name: is_active
+            description: Whether the user account is active
+          - name: created_at
+            description: Account creation timestamp
+            data_tests:
+              - not_null
+          - name: updated_at
+            description: Last update timestamp
+            data_tests:
+              - not_null
+
+      - name: bands
+        description: Music bands table
+        columns:
+          - name: id
+            description: Primary key (UUID)
+            data_tests:
+              - unique
+              - not_null
+          - name: name
+            description: Band name
+            data_tests:
+              - unique
+              - not_null
+          - name: country
+            description: Band country of origin
+          - name: genre
+            description: Music genre
+          - name: created_at
+            description: Record creation timestamp
+            data_tests:
+              - not_null
+          - name: updated_at
+            description: Last update timestamp
+            data_tests:
+              - not_null

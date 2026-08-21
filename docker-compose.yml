@@ -1,0 +1,14 @@
+services:
+  dbt:
+    build: .
+    container_name: e_commerce_dbt
+    volumes:
+      - .:/usr/app
+    env_file:
+      - .env
+    networks:
+      - e-commerce-api-python_template_network
+
+networks:
+  e-commerce-api-python_template_network:
+    external: true
