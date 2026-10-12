@@ -1,0 +1,11 @@
+# Airflow image dependencies.
+# Consumed only by airflow/Dockerfile — not by the local venv or the dbt image.
+
+# NOTE: do NOT list apache-airflow here. The base image
+# (apache/airflow:2.10.3-python3.12) already ships Airflow 2.10.3, and
+# re-resolving its dependency tree against dbt makes pip hit
+# ResolutionTooDeep during the build. Only add packages ON TOP of the image.
+
+# Keep dbt in sync with the repo root requirements.txt
+# (used by the local venv and the dbt one-shot image).
+-r /tmp/requirements.txt

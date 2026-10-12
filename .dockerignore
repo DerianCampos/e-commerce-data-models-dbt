@@ -9,3 +9,7 @@ venv/
 .gitignore
 *.md
 .env
+
+# Airflow (managed separately by docker-compose.airflow.yml)
+airflow/logs/
+airflow/plugins/
