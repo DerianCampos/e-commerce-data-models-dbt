@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: >
+      User dimension published by the core project. This is a public model:
+      downstream data products consume it as their stable interface.
+    columns:
+      - name: user_id
+        description: Primary key (UUID)
+        data_tests:
+          - unique
+          - not_null
+      - name: email
+        description: User email address
+        data_tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: Concatenated first and last name
+        data_tests:
+          - not_null
+      - name: role
+        description: User role (admin or user)
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['admin', 'user']
+      - name: is_active
+        description: Whether the user account is active
+      - name: created_at
+        description: Account creation timestamp
+        data_tests:
+          - not_null
+      - name: updated_at
+        description: Last update timestamp
+        data_tests:
+          - not_null

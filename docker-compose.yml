@@ -2,10 +2,17 @@ services:
   dbt:
     build: .
     container_name: e_commerce_dbt
+    working_dir: /usr/app/e-commerce-dbt-core
     volumes:
       - .:/usr/app
-    env_file:
-      - .env
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST:-e-commerce_api_app_db}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dbpassword}
+      POSTGRES_DB: ${POSTGRES_DB:-e-commerce_db}
+      DBT_SCHEMA_CORE: ${DBT_SCHEMA_CORE:-e_commerce_dbt_core}
+      DBT_PROFILES_DIR: /usr/app/e-commerce-dbt-core
     networks:
       - e-commerce-api-python_template_network
 

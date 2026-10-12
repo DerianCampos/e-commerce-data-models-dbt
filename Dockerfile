@@ -14,9 +14,6 @@ RUN pip install --no-cache-dir \
     "dbt-core>=1.9,<2.0" \
     "dbt-postgres>=1.9,<2.0"
 
-COPY profiles.yml /root/.dbt/profiles.yml
-COPY dbt_project.yml .
-COPY packages.yml .
-COPY models/ models/
+COPY . .
 
 ENTRYPOINT ["dbt"]

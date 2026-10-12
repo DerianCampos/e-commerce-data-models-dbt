@@ -1,6 +1,10 @@
-target/
-dbt_packages/
-dbt_modules/
+**/target/
+**/dbt_packages/
+**/dbt_modules/
+**/logs/
+**/__pycache__/
+.venv/
+venv/
 .git/
 .gitignore
 *.md

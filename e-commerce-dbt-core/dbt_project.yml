@@ -1,8 +1,8 @@
-name: 'e_commerce_data_models'
+name: 'e_commerce_dbt_core'
 version: '1.0.0'
 config-version: 2
 
-profile: 'e_commerce_data_models'
+profile: 'e_commerce_dbt_core'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -16,10 +16,13 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  e_commerce_data_models:
+  e_commerce_dbt_core:
+    +group: e_commerce_core
     staging:
       +materialized: view
+      +access: private
     intermediate:
       +materialized: ephemeral
     marts:
       +materialized: table
+      +access: public

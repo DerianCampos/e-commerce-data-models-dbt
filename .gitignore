@@ -2,6 +2,7 @@
 target/
 dbt_packages/
 dbt_modules/
+.user.yml
 
 # .env
 .env
@@ -15,3 +16,4 @@ __pycache__/
 
 # venv
 .venv/
+venv/
